@@ -19,7 +19,8 @@ var store = new MongoDBStore(
   });
 app.use(cors(
   {
-    origin: "http://localhost:3000", 
+    origin:["https://menstrualtracker.onrender.com", "http://localhost:3000"],
+    
     credentials: true 
   }));
 app.use(express.json());
