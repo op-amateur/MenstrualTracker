@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import '../assets/css/styles.css'
 
+const api = `${process.env.REACT_APP_BACKEND_URL}/api/users/signup`;
 
 const SignUp = ({ setUser }) => {
     const [email, setEmail] = useState('');
@@ -16,7 +17,7 @@ const SignUp = ({ setUser }) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.post('http://localhost:5000/api/users/signup', {
+            const res = await axios.post(api, {
                 email,
                 password,
                 height,
@@ -40,7 +41,7 @@ const SignUp = ({ setUser }) => {
     };
 
     return (
-        <><div>
+        <div>
             <h2>Sign Up</h2>
             {error && <p style={{ color: 'red' }}>{error}</p>}
             <form onSubmit={handleSubmit}>
@@ -83,10 +84,6 @@ const SignUp = ({ setUser }) => {
             </form>
             
         </div>
-        <div>
-        <button onClick={skipToLogin}>Login</button>
-        </div>
-        </>
     );
 };
 

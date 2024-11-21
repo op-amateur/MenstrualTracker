@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import '../assets/css/styles.css'
 
+const api = `${process.env.REACT_APP_BACKEND_URL}/api/users/login`;
 
 const Login = ({ setUser }) => {
     const [email, setEmail] = useState('');
@@ -13,7 +14,7 @@ const Login = ({ setUser }) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.post('http://localhost:5000/api/users/login', {
+            const res = await axios.post(api, {
                 email,
                 password
             },{ withCredentials: true });

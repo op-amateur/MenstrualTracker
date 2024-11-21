@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import '../assets/css/styles.css';
 
+const api = `${process.env.REACT_APP_BACKEND_URL}/api/users/tracker`;
 
 const Tracker = ({ user }) => {
     const [lastPeriod, setLastPeriod] = useState('');
@@ -15,7 +16,7 @@ const Tracker = ({ user }) => {
     useEffect(() => {
         const fetchTrackerData = async () => {
             try {
-                const res = await axios.get('http://localhost:5000/api/users/tracker', { withCredentials: true });
+                const res = await axios.get(api, { withCredentials: true });
                 setCycleLength(res.data.cycleLength);
                 setBMI(res.data.bmi);
                 setLastPeriod(new Date(res.data.lastPeriod));

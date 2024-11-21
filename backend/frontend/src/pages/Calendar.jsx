@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import '../assets/css/styles.css'
 
+const api = `${process.env.REACT_APP_BACKEND_URL}/api/users/calendar`;
 
 const Calendar = ({ user }) => {
     const [periodDate, setPeriodDate] = useState('');
@@ -22,7 +23,7 @@ const Calendar = ({ user }) => {
         e.preventDefault();
         try {
             // Update period and BMI
-            const res=await axios.put('http://localhost:5000/api/users/calendar', { 
+            const res=await axios.put(api, { 
                 periodDate,
                 height,
                 weight 
