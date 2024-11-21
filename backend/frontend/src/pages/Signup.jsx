@@ -82,7 +82,7 @@ const SignUp = ({ setUser }) => {
 
                 <button type="submit">Sign Up</button>
             </form>
-            
+            <button onClick={skipToLogin}>Log In</button>
         </div>
     );
 };

@@ -25,20 +25,18 @@ app.use(cors(
   }));
 app.use(express.json());
 app.use(bodyParser.json());
-app.use(session(
-  {
+  app.use(session({
     secret: process.env.secretKey,
     resave: false,
     saveUninitialized: false,
-    cookie: 
-    { 
-      secure: false, 
-      httpOnly: true, 
-      sameSite: 'Lax', 
-      maxAge: 1000*60*60*0.25
-    }, 
-    store:store
-  }));
+    cookie: {
+        secure: process.env.NODE_ENV === 'production', 
+        httpOnly: true,
+        sameSite: 'None',
+        maxAge: 1000 * 60 * 60 * 0.25 
+    },
+    store: store
+}));
 
 
 

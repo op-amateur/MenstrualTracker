@@ -3,7 +3,7 @@ const User = require('../models/User');
 const addPeriodDate = async (req, res) => {
     const { periodDate, height, weight } = req.body;
     console.log('Calendar backend Session:', req.session.user);
-    console.log('request sent from frontend:',req.body);
+    console.log('request sent from frontend:', req.body);
     const userId = req.session.user.id;
 
     try {
