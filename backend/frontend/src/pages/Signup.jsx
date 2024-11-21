@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import '../assets/css/styles.css'
 
-const api = `${process.env.REACT_APP_BACKEND_URL}/api/users/signup`;
+const api = `${process.env.BACKEND_URL}/api/users/signup`;
 
 const SignUp = ({ setUser }) => {
     const [email, setEmail] = useState('');
