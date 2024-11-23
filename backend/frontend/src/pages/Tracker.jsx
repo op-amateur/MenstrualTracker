@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import '../assets/css/styles.css';
 
 const api = `${process.env.BACKEND_URL}/api/users/tracker`;
+const api2=`${process.env.BACKEND_URL}/api/users/logout`;
 
 const Tracker = ({ user }) => {
     const [lastPeriod, setLastPeriod] = useState('');
@@ -84,7 +85,7 @@ const Tracker = ({ user }) => {
 
     const handleLogout = async () => {
         try {
-            await axios.get('http://localhost:5000/api/users/logout', { withCredentials: true });
+            await axios.get(api2, { withCredentials: true });
             navigate('/login');
         } catch (err) {
             console.error('Error logging out:', err.response.data.message);
