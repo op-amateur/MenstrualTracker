@@ -27,7 +27,7 @@ const Login = ({ setUser }) => {
         } catch (err) {
             // Check if the error has a response and if it contains data
             if (err.response && err.response.data) {
-                setError(err.response.data.message || 'An error occurred'); // Accessing the message property
+                setError(err.response.data.message'); // Accessing the message property
             } else {
                 setError('An error occurred. Please try again.'); // Fallback error message
             }
