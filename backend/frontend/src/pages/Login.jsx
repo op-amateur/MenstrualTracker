@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import '../assets/css/styles.css'
 
-const api = `${process.env.BACKEND_URL}/api/users/login`;
+const api = `${process.env.REACT_APP_BACKEND_URL}/api/users/login`;
 
 const Login = ({ setUser }) => {
     const [email, setEmail] = useState('');
@@ -27,7 +27,7 @@ const Login = ({ setUser }) => {
         } catch (err) {
             // Check if the error has a response and if it contains data
             if (err.response && err.response.data) {
-                setError(err.response.data); // Accessing the message property
+                setError(err.response.data.message || 'An error occurred'); // Accessing the message property
             } else {
                 setError('An error occurred. Please try again.'); // Fallback error message
             }
